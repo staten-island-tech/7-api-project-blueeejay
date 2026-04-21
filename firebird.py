@@ -1,7 +1,9 @@
-""" import requests """
+# the app.py in code line "python app.py" should mirror the filename #yay 
 
-""" def getPoke(poke):
-    response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{poke.lower()}") # requests data from this 
+""" 
+import requests
+def getPoke(poke):
+    response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{poke.lower()}") # requests data from this api... mmm information
     if response.status_code != 200:
         print("Error fetching data!")
         return None
@@ -12,15 +14,18 @@
         "height": data["height"],
         "weight": data["weight"],
         "types": [t["type"]["name"] for t in data["types"]]
-    }
+    } # this data opens in a dictionary format 
+ """
 
-pokemon = getPoke("Bulbasaur")
+""" pokemon = getPoke("Bulbasaur")
 print(pokemon)
 
+
 for key, value in pokemon.items(): # using items lets you look through every thing in the box/every pairing in the dictionary 
-    print(key, "→", value)
- """
-#MAKING A LIST 
+    print(key, "→", value) """
+
+
+#MAKING A LIST... NEW WAY TO DO IT! 
 """ types = []
 for t in data["types"]:
     types.append(t["type"]["name"])"""
@@ -28,3 +33,32 @@ for t in data["types"]:
 """types = [t["type"]["name"] for t in data["types"]] """
 # little way #installing virtual environment
 #convert to json data
+
+""" 
+
+SCIENTIFIC_NAME,COMMON_NAME,SPECIES_CODE,CATEGORY,TAXON_ORDER,COM_NAME_CODES,SCI_NAME_CODES,BANDING_CODES,ORDER,FAMILY_COM_NAME,FAMILY_SCI_NAME,REPORT_AS,EXTINCT,EXTINCT_YEAR
+Larus glaucoides thayeri,Iceland Gull (Thayer's),thagul,issf,4349.0,THGU ICGU,LAGL,THGU,Charadriiformes,"Gulls, Terns, and Skimmers",Laridae,y00478,,
+Larus glaucoides kumlieni,Iceland Gull (kumlieni),kumgul1,issf,4352.0,THGU ICGU,LAGL,,Charadriiformes,"Gulls, Terns, and Skimmers",Laridae,y00478,,
+ """
+
+# API ACTIVITY
+# https://api.ebird.org/v2/ref/taxonomy/ebird i  love e bird sm.. 
+
+
+import requests
+def birdsearch(birdie):
+    response = requests.get(f"https://api.ebird.org/v2/ref/taxonomy/ebird{{lower}}")
+    if response.status_code != 200:
+        print ("Error fetching data.")
+        return None
+    data = response.json
+    return  {
+        "Scientific Name": data["SCIENTIFIC_NAME"],
+        "Common Name": data["COMMON_NAME"],
+        "Species code": data["SPECIES_CODE"],
+        "Category of bird": data["CATEGORY"],
+        "Order": data["TAXON_ORDER"],
+        "Banding Code": data["BANDING_CODES"]
+    }
+bird = birdsearch("Black Legged Kittewake")
+print(bird)
