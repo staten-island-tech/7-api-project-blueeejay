@@ -1,8 +1,8 @@
 # the app.py in code line "python app.py" should mirror the filename #yay 
-
 """ 
-import requests
-def getPoke(poke):
+
+import requests """
+""" def getPoke(poke):
     response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{poke.lower()}") # requests data from this api... mmm information
     if response.status_code != 200:
         print("Error fetching data!")
@@ -47,7 +47,7 @@ Larus glaucoides kumlieni,Iceland Gull (kumlieni),kumgul1,issf,4352.0,THGU ICGU,
 
 import requests
 def birdsearch(birdie):
-    response = requests.get(f"https://api.ebird.org/v2/ref/taxonomy/ebird{{lower}}")
+    response = requests.get('https://api.ebird.org/v2/ref/taxonomy/ebird?species=hottea1&version=2019')
     if response.status_code != 200:
         print ("Error fetching data.")
         return None
@@ -60,5 +60,18 @@ def birdsearch(birdie):
         "Order": data["TAXON_ORDER"],
         "Banding Code": data["BANDING_CODES"]
     }
-bird = birdsearch("Black Legged Kittewake")
+bird = birdsearch("thagul")
 print(bird)
+
+
+
+
+
+    # return  {
+    #     "Scientific Name": data["SCIENTIFIC_NAME"],
+    #     "Common Name": data["COMMON_NAME"],
+    #     "Species code": data["SPECIES_CODE"],
+    #     "Category of bird": data["CATEGORY"],
+    #     "Order": data["TAXON_ORDER"],
+    #     "Banding Code": data["BANDING_CODES"]
+    # }
