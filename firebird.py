@@ -70,7 +70,7 @@ def birdsearch(birdie):
 
         }
     }
-bird = birdsearch("thagul")
+bird = birdsearch("tomato")
 print(bird)
 
 
