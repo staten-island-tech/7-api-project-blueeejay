@@ -47,18 +47,28 @@ Larus glaucoides kumlieni,Iceland Gull (kumlieni),kumgul1,issf,4352.0,THGU ICGU,
 
 import requests
 def birdsearch(birdie):
-    response = requests.get('https://api.ebird.org/v2/ref/taxonomy/ebird?species=hottea1&version=2019')
+    response = requests.get('https://www.fruityvice.com/doc/index.html#api-GET-getAll')
     if response.status_code != 200:
         print ("Error fetching data.")
         return None
     data = response.json
+
     return  {
-        "Scientific Name": data["SCIENTIFIC_NAME"],
-        "Common Name": data["COMMON_NAME"],
-        "Species code": data["SPECIES_CODE"],
-        "Category of bird": data["CATEGORY"],
-        "Order": data["TAXON_ORDER"],
-        "Banding Code": data["BANDING_CODES"]
+        "Common Name": data["name"],
+        "Fruit Id": data["id"],
+        "Family": data["family"],
+        "genus": data["genus"],
+        "Order": data["order"],
+        "nutritions": { 
+            "carbohydrates": data["carbohydrates"], 
+            "protein" : data["protein"],
+            "fat" : data["fat" ],
+            "calories" : ["calories"],
+            "sugar" : data["sugar"]
+
+                       
+
+        }
     }
 bird = birdsearch("thagul")
 print(bird)
