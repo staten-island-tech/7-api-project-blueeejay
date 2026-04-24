@@ -66,8 +66,7 @@ def birdsearch(birdie):
             "calories" : ["calories"],
             "sugar" : data["sugar"]
 
-                       
-
+        
         }
     }
 bird = birdsearch("tomato")
