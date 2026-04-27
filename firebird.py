@@ -47,7 +47,7 @@ Larus glaucoides kumlieni,Iceland Gull (kumlieni),kumgul1,issf,4352.0,THGU ICGU,
 
 import requests
 def birdsearch(birdie):
-    response = requests.get('https://www.fruityvice.com/doc/index.html#api-GET-getAll')
+    response = requests.get('https://www.fruityvice.com/doc/index.html#api-GET-getAll{birdie}')
     if response.status_code != 200:
         print ("Error fetching data.")
         return None
