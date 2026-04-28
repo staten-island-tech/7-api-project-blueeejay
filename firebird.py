@@ -56,8 +56,8 @@ def birdsearch(fruit):
         "Common Name": data["name"],
         "Fruit Id": data["id"],
         "Family": data["family"],
-        "genus": data["genus"],
         "Order": data["order"],
+        "genus": data["genus"],
         "nutrition": { 
             "carbohydrates": data["carbohydrates"], 
             "protein" : data["protein"],
@@ -66,7 +66,8 @@ def birdsearch(fruit):
             "sugar" : data["sugar"]
         }
     }
-
+bird = birdsearch("Persimmon")
+print(bird)
 
 # window.title("Message Reverser") # title at the top of the window
 # window.geometry("400x250") # set the size (width x height)
@@ -87,8 +88,7 @@ def birdsearch(fruit):
     #         "sugar" : data["sugar"]
     #     }
     # }
-bird = birdsearch("tomato")
-print(bird)
+
 """ 
 
 
