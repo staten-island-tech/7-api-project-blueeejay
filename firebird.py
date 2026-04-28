@@ -44,10 +44,71 @@ Larus glaucoides kumlieni,Iceland Gull (kumlieni),kumgul1,issf,4352.0,THGU ICGU,
 # API ACTIVITY
 # https://api.ebird.org/v2/ref/taxonomy/ebird i  love e bird sm.. 
 
+import requests
+def birdsearch(fruit):
+    
+    response = requests.get("https://www.fruityvice.com/api/fruit/all")
+    if response.status_code != 200:
+        print ("Error fetching data.")
+        return None
+    data = response.json
+    return  {
+        "Common Name": data["name"],
+        "Fruit Id": data["id"],
+        "Family": data["family"],
+        "genus": data["genus"],
+        "Order": data["order"],
+        "nutrition": { 
+            "carbohydrates": data["carbohydrates"], 
+            "protein" : data["protein"],
+            "fat" : data["fat" ],
+            "calories" : ["calories"],
+            "sugar" : data["sugar"]
+        }
+    }
+
+
+# window.title("Message Reverser") # title at the top of the window
+# window.geometry("400x250") # set the size (width x height)
+# window.resizable(False, False)
+# button = tkinter.Button()
+    # }
+    # return  {
+    #     "Common Name": data["name"],
+    #     "Fruit Id": data["id"],
+    #     "Family": data["family"],
+    #     "genus": data["genus"],
+    #     "Order": data["order"],
+    #     "nutrition": { 
+    #         "carbohydrates": data["carbohydrates"], 
+    #         "protein" : data["protein"],
+    #         "fat" : data["fat" ],
+    #         "calories" : ["calories"],
+    #         "sugar" : data["sugar"]
+    #     }
+    # }
+bird = birdsearch("tomato")
+print(bird)
+""" 
+
+
+
+
+    # return  {
+    #     "Scientific Name": data["SCIENTIFIC_NAME"],
+    #     "Common Name": data["COMMON_NAME"],
+    #     "Species code": data["SPECIES_CODE"],
+    #     "Category of bird": data["CATEGORY"],
+    #     "Order": data["TAXON_ORDER"],
+    #     "Banding Code": data["BANDING_CODES"]
+    # }
+
+
+https://dog.ceo/api/breeds/image/random
 import tkinter
 import requests
-def birdsearch(birdie):
-    url = 'https://www.fruityvice.com/doc/index.html#api-GET-getAll{birdie}'
+def birdsearch(fruit):
+    url = "https://dog.ceo/api/breeds/image/random"
     response = requests.get(url)
     if response.status_code != 200:
         print ("Error fetching data.")
@@ -66,33 +127,4 @@ def birdsearch(birdie):
             "calories" :("calories"),
             "sugar" : data("sugar")
         }
-    }
-    # return  {
-    #     "Common Name": data["name"],
-    #     "Fruit Id": data["id"],
-    #     "Family": data["family"],
-    #     "genus": data["genus"],
-    #     "Order": data["order"],
-    #     "nutrition": { 
-    #         "carbohydrates": data["carbohydrates"], 
-    #         "protein" : data["protein"],
-    #         "fat" : data["fat" ],
-    #         "calories" : ["calories"],
-    #         "sugar" : data["sugar"]
-    #     }
-    # }
-bird = birdsearch("tomato")
-print(bird)
-
-
-
-
-
-    # return  {
-    #     "Scientific Name": data["SCIENTIFIC_NAME"],
-    #     "Common Name": data["COMMON_NAME"],
-    #     "Species code": data["SPECIES_CODE"],
-    #     "Category of bird": data["CATEGORY"],
-    #     "Order": data["TAXON_ORDER"],
-    #     "Banding Code": data["BANDING_CODES"]
-    # }
+    } """
