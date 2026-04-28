@@ -44,31 +44,43 @@ Larus glaucoides kumlieni,Iceland Gull (kumlieni),kumgul1,issf,4352.0,THGU ICGU,
 # API ACTIVITY
 # https://api.ebird.org/v2/ref/taxonomy/ebird i  love e bird sm.. 
 
-
+import tkinter
 import requests
 def birdsearch(birdie):
-    response = requests.get('https://www.fruityvice.com/doc/index.html#api-GET-getAll{birdie}')
+    url = 'https://www.fruityvice.com/doc/index.html#api-GET-getAll{birdie}'
+    response = requests.get(url)
     if response.status_code != 200:
         print ("Error fetching data.")
         return None
     data = response.json
-
     return  {
-        "Common Name": data["name"],
-        "Fruit Id": data["id"],
-        "Family": data["family"],
-        "genus": data["genus"],
-        "Order": data["order"],
-        "nutritions": { 
-            "carbohydrates": data["carbohydrates"], 
-            "protein" : data["protein"],
-            "fat" : data["fat" ],
-            "calories" : ["calories"],
-            "sugar" : data["sugar"]
-
-        
+        "Common Name": data("name"),
+        "Fruit Id": data("id"),
+        "Family": data("family"),
+        "genus": data("genus"),
+        "Order": data("order"),
+        "nutrition": { 
+            "carbohydrates": data("carbohydrates"), 
+            "protein" : data("protein"),
+            "fat" : data("fat"),
+            "calories" :("calories"),
+            "sugar" : data("sugar")
         }
     }
+    # return  {
+    #     "Common Name": data["name"],
+    #     "Fruit Id": data["id"],
+    #     "Family": data["family"],
+    #     "genus": data["genus"],
+    #     "Order": data["order"],
+    #     "nutrition": { 
+    #         "carbohydrates": data["carbohydrates"], 
+    #         "protein" : data["protein"],
+    #         "fat" : data["fat" ],
+    #         "calories" : ["calories"],
+    #         "sugar" : data["sugar"]
+    #     }
+    # }
 bird = birdsearch("tomato")
 print(bird)
 
