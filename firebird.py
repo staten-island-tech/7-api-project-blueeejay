@@ -53,18 +53,18 @@ def WHATf(genus):
         return None
     data = response.json
     return  [ {
-        "Common Name": data["name"],
-        "Fruit Id": data["id"],
-        "Family": data["family"],
-        "Order": data["order"],
-        "genus": data["genus"],
-        "nutrition": { 
-            "carbohydrates": data["carbohydrates"], 
-            "protein" : data["protein"],
-            "fat" : data["fat" ],
-            "calories" : ["calories"],
-            "sugar" : data["sugar"]
-        }
+    "name": (data)["name"],
+        # "id": data["id"],
+        # "family": data["family"],
+        # "order": data["order"],
+        # "genus": data["genus"],
+        # "nutrition": { 
+        #     "carbohydrates": data["carbohydrates"], 
+        #     "protein" : data["protein"],
+        #     "fat" : data["fat" ],
+        #     "calories" : ["calories"],
+        #     "sugar" : data["sugar"]
+        # }
     }
     ]
 bird = WHATf("Ananas")
