@@ -52,7 +52,7 @@ def WHATf(genus):
         print ("Error fetching data.")
         return None
     data = response.json
-    return  {
+    return  [ {
         "Common Name": data["name"],
         "Fruit Id": data["id"],
         "Family": data["family"],
@@ -66,6 +66,7 @@ def WHATf(genus):
             "sugar" : data["sugar"]
         }
     }
+    ]
 bird = WHATf("Ananas")
 print(bird)
 
