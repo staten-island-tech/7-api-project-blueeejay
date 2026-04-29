@@ -45,9 +45,9 @@ Larus glaucoides kumlieni,Iceland Gull (kumlieni),kumgul1,issf,4352.0,THGU ICGU,
 # https://api.ebird.org/v2/ref/taxonomy/ebird i  love e bird sm.. 
 
 import requests
-def birdsearch(fruit):
+def WHATf(genus):
     
-    response = requests.get("https://www.fruityvice.com/api/fruit/all")
+    response = requests.get(f"https://www.fruityvice.com/api/fruit/genus/{genus}")
     if response.status_code != 200:
         print ("Error fetching data.")
         return None
@@ -66,7 +66,7 @@ def birdsearch(fruit):
             "sugar" : data["sugar"]
         }
     }
-bird = birdsearch("Persimmon")
+bird = WHATf("Ananas")
 print(bird)
 
 # window.title("Message Reverser") # title at the top of the window
