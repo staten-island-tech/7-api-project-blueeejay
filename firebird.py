@@ -45,35 +45,38 @@ Larus glaucoides kumlieni,Iceland Gull (kumlieni),kumgul1,issf,4352.0,THGU ICGU,
 # https://api.ebird.org/v2/ref/taxonomy/ebird i  love e bird sm.. 
 
 import requests
-def WHATf(genus):
-    
+def WHATf():
+    genus = input("From what genus does the fruit you are looking for originate in?:")
     response = requests.get(f"https://www.fruityvice.com/api/fruit/genus/{genus}")
     if response.status_code != 200:
         print ("Error fetching data.")
         return None
-    data = response.json
-    return  [ {
-    "name": (data)["name"],
-        # "id": data["id"],
-        # "family": data["family"],
-        # "order": data["order"],
-        # "genus": data["genus"],
-        # "nutrition": { 
-        #     "carbohydrates": data["carbohydrates"], 
-        #     "protein" : data["protein"],
-        #     "fat" : data["fat" ],
-        #     "calories" : ["calories"],
+    data = response.json()
+    return   {
+        "Fruit Name": data[0]["name"],
+        "ID": data[0]["id"],
+        "Family": data[0]["family"],
+        "Order": data[0]["order"],
+        "Genus": data[0]["genus"],
+        "Nutrition Facts": data[0]["nutritions"] 
+        #     {"carbohydrates": data[0]["carbohydrates"], 
+        #     "protein" : data[0]["protein"],
+        #     "fat" : data[0]["fat" ],
+        #     "calories" : data[0]["calories"],
         #     "sugar" : data["sugar"]
         # }
     }
-    ]
-bird = WHATf("Ananas")
+
+    
+bird = WHATf()
 print(bird)
 
-# window.title("Message Reverser") # title at the top of the window
-# window.geometry("400x250") # set the size (width x height)
-# window.resizable(False, False)
-# button = tkinter.Button()
+import tkinter as tk
+window = tk.Tk()
+window.title("Message Reverser") # title at the top of the window
+window.geometry("400x250") # set the size (width x height)
+window.resizable(False, False)
+button = tk.Button()
     # }
     # return  {
     #     "Common Name": data["name"],
