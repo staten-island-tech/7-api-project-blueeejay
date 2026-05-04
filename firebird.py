@@ -44,7 +44,7 @@ Larus glaucoides kumlieni,Iceland Gull (kumlieni),kumgul1,issf,4352.0,THGU ICGU,
 # API ACTIVITY
 # https://api.ebird.org/v2/ref/taxonomy/ebird i  love e bird sm.. 
 
-# import requests
+import requests
 # def WHATf():
 #     genus = input("From what genus does the fruit you are looking for originate in?:")
 #     response = requests.get(f"https://www.fruityvice.com/api/fruit/genus/{genus}")
@@ -76,7 +76,7 @@ class fruit_search():
         genus = input("From what genus does the fruit you are looking for originate in?:")
         response = requests.get(f"https://www.fruityvice.com/api/fruit/genus/{genus}")
         if response.status_code != 200:
-        print ("Error fetching data.")
+            print ("Error fetching data.")
         return None
     data = response.json()
     selected_fruit =   {
@@ -93,6 +93,7 @@ class fruit_search():
             print(index, ":", selected_fruit[key])
     chosen = (input("Input the the piece of fruit info you would like to know:")).capitalize()
     print(selected_fruit[chosen])
+fruit_search.search()
 
 fruit_search.search()
 
