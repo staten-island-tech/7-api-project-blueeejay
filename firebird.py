@@ -52,7 +52,7 @@ def WHATf():
         print ("Error fetching data.")
         return None
     data = response.json()
-    return   {
+    selected_fruit =   {
         "Fruit Name": data[0]["name"],
         "ID": data[0]["id"],
         "Family": data[0]["family"],
@@ -71,12 +71,67 @@ def WHATf():
 bird = WHATf()
 print(bird)
 
-import tkinter as tk
-window = tk.Tk()
-window.title("Message Reverser") # title at the top of the window
-window.geometry("400x250") # set the size (width x height)
-window.resizable(False, False)
-button = tk.Button()
+class fruit_search():
+    def __init__(genus, response):
+        genus = input("From what genus does the fruit you are looking for originate in?:")
+        response = requests.get(f"https://www.fruityvice.com/api/fruit/genus/{genus}")
+        if response.status_code != 200:
+        print ("Error fetching data.")
+        return None
+    data = response.json()
+    selected_fruit =   {
+        "Fruit Name": data[0]["name"],
+        "ID": data[0]["id"],
+        "Family": data[0]["family"],
+        "Order": data[0]["order"],
+        "Genus": data[0]["genus"],
+        "Nutrition Facts": data[0]["nutritions"] }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# import tkinter as tk
+# window = tk.Tk()
+# window.title("Message Reverser") # title at the top of the window
+# window.geometry("400x250") # set the size (width x height)
+# window.resizable(False, False)
+# button = tk.Button()
     # }
     # return  {
     #     "Common Name": data["name"],
