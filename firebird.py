@@ -44,32 +44,32 @@ Larus glaucoides kumlieni,Iceland Gull (kumlieni),kumgul1,issf,4352.0,THGU ICGU,
 # API ACTIVITY
 # https://api.ebird.org/v2/ref/taxonomy/ebird i  love e bird sm.. 
 
-import requests
-def WHATf():
-    genus = input("From what genus does the fruit you are looking for originate in?:")
-    response = requests.get(f"https://www.fruityvice.com/api/fruit/genus/{genus}")
-    if response.status_code != 200:
-        print ("Error fetching data.")
-        return None
-    data = response.json()
-    selected_fruit =   {
-        "Fruit Name": data[0]["name"],
-        "ID": data[0]["id"],
-        "Family": data[0]["family"],
-        "Order": data[0]["order"],
-        "Genus": data[0]["genus"],
-        "Nutrition Facts": data[0]["nutritions"] 
-        #     {"carbohydrates": data[0]["carbohydrates"], 
-        #     "protein" : data[0]["protein"],
-        #     "fat" : data[0]["fat" ],
-        #     "calories" : data[0]["calories"],
-        #     "sugar" : data["sugar"]
-        # }
-    }
+# import requests
+# def WHATf():
+#     genus = input("From what genus does the fruit you are looking for originate in?:")
+#     response = requests.get(f"https://www.fruityvice.com/api/fruit/genus/{genus}")
+#     if response.status_code != 200:
+#         print ("Error fetching data.")
+#         return None
+#     data = response.json()
+#     selected_fruit =   {
+#         "Fruit Name": data[0]["name"],
+#         "ID": data[0]["id"],
+#         "Family": data[0]["family"],
+#         "Order": data[0]["order"],
+#         "Genus": data[0]["genus"],
+#         "Nutrition Facts": data[0]["nutritions"] 
+#         #     {"carbohydrates": data[0]["carbohydrates"], 
+#         #     "protein" : data[0]["protein"],
+#         #     "fat" : data[0]["fat" ],
+#         #     "calories" : data[0]["calories"],
+#         #     "sugar" : data["sugar"]
+#         # }
+#     }
 
     
-bird = WHATf()
-print(bird)
+# bird = WHATf()
+# print(bird)
 
 class fruit_search():
     def __init__(genus, response):
@@ -85,7 +85,14 @@ class fruit_search():
         "Family": data[0]["family"],
         "Order": data[0]["order"],
         "Genus": data[0]["genus"],
-        "Nutrition Facts": data[0]["nutritions"] }
+        "Nutrition Facts": data[0]["nutritions"] 
+        }
+    
+    def search(selected_fruit):
+        for index, key in enumerate(selected_fruit):
+            print(index, ":", selected_fruit[key])
+    chosen = (input("Input the the piece of fruit info you would like to know:")).capitalize()
+    print(selected_fruit[chosen])
 
 
 
