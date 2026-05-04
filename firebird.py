@@ -94,7 +94,7 @@ class fruit_search():
     chosen = (input("Input the the piece of fruit info you would like to know:")).capitalize()
     print(selected_fruit[chosen])
 
-
+fruit_search.search()
 
 
 
